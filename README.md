@@ -1,70 +1,127 @@
-# Getting Started with Create React App
+# 🧩 Maze Runner
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)
+![React](https://img.shields.io/badge/React-18.2.0-61dafb.svg)
+![Redux Toolkit](https://img.shields.io/badge/Redux%20Toolkit-1.9.5-764abc.svg)
+![License](https://img.shields.io/badge/license-MIT-green.svg)
 
-## Available Scripts
+Лабіринт-гра, де гравець керує персонажем у сітці-лабіринті. Мета — дійти від стартової точки до виходу, уникаючи тупиків. Проект створено в рамках курсу "Компонентно-орієнтоване програмування".
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🎮 Про гру
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Керування**: клавіші стрілок / WASD або кнопки на екрані
+- **Рівні складності**: легкий (9x9), середній (13x13), складний (17x17)
+- **Статистика**: час, кроки, успішність
+- **Рейтинг гравців**: таблиця результатів з топ-3 медалями
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🛠 Технології
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Frontend**: React 18 (functional components + hooks)
+- **Стейт менеджмент**: Redux Toolkit (3 слайси: settings, gameStats, user)
+- **Стилізація**: Styled Components
+- **Маршрутизація**: React Router v6 (динамічні маршрути з :userId)
+- **Форми**: React Hook Form (з валідацією)
+- **Збереження даних**: LocalStorage
+- **Збірка**: Create React App
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 📁 Структура проекту
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```
+src/
+├── components/          # Перевикористовувані компоненти
+|   ├── forms            # SettingsForm
+|   ├── game/            # GameControls, GameOverDialog, MazeGrid
+│   ├── layout/          # Header
+│   ├── UI/              # Button, Modal
+│   └──
+├── context/             # SettingsContext, UserStatsContext
+├── hooks/               # useGame, useGameControls, useNavigation
+├── pages/               # GamePage, ResultsPage, ResultsTable, StartPage, UserProfile
+├── store/               # Redux store
+│   ├── selectors/       # gameStatsSelectors, settingsSelectors
+│   └── slices/          # gameStatsSlice, settingsSlice, userSlice
+└──
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+## 🚀 Встановлення та запуск
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+```bash
+# Клонувати репозиторій
+git clone https://github.com/Doshik143/Standardization.git
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+# Перейти в папку проекту
+cd Standardization
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Встановити залежності
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Запустити проект
+npm start
+```
 
-## Learn More
+Після запуску проект буде доступний за адресою: `http://localhost:3000`
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📦 Команди
 
-### Code Splitting
+| Команда             | Опис                     |
+| ------------------- | ------------------------ |
+| `npm start`         | Запуск в режимі розробки |
+| `npm run build`     | Збірка для продакшну     |
+| `npm test`          | Запуск тестів            |
+| `npm run storybook` | Запуск Storybook         |
+| `npm run docs`      | Генерація документації   |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
 
-### Analyzing the Bundle Size
+## 📜 Ліцензія
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Цей проект ліцензовано під ліцензією MIT.
 
-### Making a Progressive Web App
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## ✍️ Автор
 
-### Advanced Configuration
+> Dzinzilevych Daryna; ІПЗ-23-2; 2025
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+---
 
-### Deployment
+## 🎯 Функціональні можливості
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- ✅ Генерація лабіринтів різної складності
+- ✅ Керування клавішами / кнопками
+- ✅ Система статистики та результатів
+- ✅ Налаштування гри (складність, тип керування)
+- ✅ Профіль користувача з редагуванням
+- ✅ Таблиця рейтингів з медалями
+- ✅ Збереження даних в LocalStorage
 
-### `npm run build` fails to minify
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📖 Документація
+
+- [JSDoc документація](./)
+- [Storybook](./)
+- [Політика конфіденційності](./)
+- [Умови використання](./)
+
+---
+
+## 🍪 Cookie Popup
+
+Проект відповідає вимогам GDPR.
+
+---
+
+## 🐛 Відомі проблеми
+
+_Якщо знайдеш баги — створи Issue у репозиторії!_
