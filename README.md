@@ -38,7 +38,7 @@ src/
 |   ├── forms            # SettingsForm
 |   ├── game/            # GameControls, GameOverDialog, MazeGrid
 │   ├── layout/          # Header
-│   ├── UI/              # Button, Modal
+│   ├── UI/              # Button, CookiePopup, Modal
 │   └──
 ├── context/             # SettingsContext, UserStatsContext
 ├── hooks/               # useGame, useGameControls, useNavigation
@@ -112,7 +112,7 @@ npm start
 - [JSDoc документація](./)
 - [Storybook](./)
 - [Політика конфіденційності](./PRIVACY.md)
-- [Умови використання](./)
+- [Умови використання](./EULA.md)
 
 ---
 

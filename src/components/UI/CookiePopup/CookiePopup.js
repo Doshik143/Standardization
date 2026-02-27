@@ -107,9 +107,12 @@ const CookiePopup = () => {
             <p>
               <a
                 href="/PRIVACY.md"
-                style={{ color: "#4CAF50", textDecoration: "underline" }}
+                style={{ color: "#ccc", marginRight: "15px" }}
               >
-                Детальніше про cookies
+                Політика конфіденційності
+              </a>
+              <a href="/EULA.md" style={{ color: "#ccc" }}>
+                Умови використання
               </a>
             </p>
           </div>
