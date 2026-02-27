@@ -12,6 +12,7 @@ import ResultsPage from "./pages/ResultsPage/ResultsPage";
 import UserProfile from "./pages/UserProfile/UserProfile";
 import ResultsTable from "./pages/ResultsTable/ResultsTable";
 import { AppContainer } from "./App.styles";
+import CookiePopup from "./components/UI/CookiePopup/CookiePopup";
 
 const generateUserId = () => {
   return `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
@@ -22,6 +23,7 @@ function App() {
     <Provider store={store}>
       <Router>
         <AppContainer>
+          <CookiePopup />
           <Routes>
             <Route
               path="/"
