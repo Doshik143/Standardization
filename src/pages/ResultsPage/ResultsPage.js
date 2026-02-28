@@ -1,3 +1,7 @@
+/**
+ * @module ResultsPage
+ * @description Сторінка результатів після завершення гри
+ */
 import { useNavigate, useParams, useLocation } from "react-router-dom";
 import Header from "../../components/layout/Header/Header";
 import Button from "../../components/UI/Button/Button";

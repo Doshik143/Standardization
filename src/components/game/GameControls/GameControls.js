@@ -6,6 +6,17 @@ import {
   ControlsHint,
 } from "./GameControls.styles";
 
+/**
+ * @module GameControls
+ * @description Компонент кнопок керування для мобільних пристроїв
+ */
+
+/**
+ * @param {Object} props - Властивості компонента
+ * @param {Function} props.onMove - Функція викликається при натисканні кнопки
+ * @param {string} props.activeDirection - Поточний активний напрямок
+ * @returns {JSX.Element} Кнопки керування
+ */
 const GameControls = ({ onMove, activeDirection }) => {
   const directions = [
     { key: "up", label: "↑", code: "ArrowUp" },

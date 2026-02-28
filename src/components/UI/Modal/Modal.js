@@ -9,6 +9,19 @@ import {
   ModalBody,
 } from "./Modal.styles";
 
+/**
+ * @module Modal
+ * @description Модальне вікно з порталом
+ */
+
+/**
+ * @param {Object} props - Властивості компонента
+ * @param {boolean} props.isOpen - Чи відкрите модальне вікно
+ * @param {Function} props.onClose - Функція закриття
+ * @param {string} props.title - Заголовок модального вікна
+ * @param {React.ReactNode} props.children - Вміст модального вікна
+ * @returns {JSX.Element} Модальне вікно з порталом
+ */
 const Modal = ({
   isOpen,
   onClose,
@@ -63,7 +76,7 @@ const Modal = ({
         <ModalBody>{children}</ModalBody>
       </ModalContent>
     </ModalOverlay>,
-    document.getElementById("modal-root")
+    document.getElementById("modal-root"),
   );
 };
 

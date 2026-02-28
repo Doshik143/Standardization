@@ -1,3 +1,7 @@
+/**
+ * @module useGame
+ * @description Хук для управління всією логікою гри: генерація лабіринту, рух гравця, перевірка перемоги
+ */
 import { useState, useCallback } from "react";
 
 export const useGame = () => {
@@ -12,6 +16,11 @@ export const useGame = () => {
     exitPosition: { x: 4, y: 4 },
   });
 
+  /**
+   * Запускає нову гру
+   * @param {string} difficulty - Рівень складності
+   * @returns {void}
+   */
   const startGame = useCallback((difficulty = "medium") => {
     const startTime = new Date();
     const initialMaze = generateMaze(difficulty);
@@ -30,13 +39,19 @@ export const useGame = () => {
     });
   }, []);
 
+  /**
+   * Переміщує гравця в заданому напрямку
+   * @param {string} direction - Напрямок руху ('up', 'down', 'left', 'right')
+   * @returns {void}
+   * @throws {void} Нічого не кидає, просто не рухається якщо стіна
+   */
   const movePlayer = useCallback((direction) => {
     setGameState((prevState) => {
       if (!prevState.isPlaying) return prevState;
 
       const newPosition = calculateNewPosition(
         prevState.playerPosition,
-        direction
+        direction,
       );
 
       if (!isValidMove(newPosition, prevState.maze)) {
@@ -54,6 +69,10 @@ export const useGame = () => {
     });
   }, []);
 
+  /**
+   * Завершує поточну гру
+   * @returns {void}
+   */
   const endGame = useCallback(() => {
     setGameState((prevState) => ({
       ...prevState,
@@ -75,6 +94,14 @@ export const useGame = () => {
     });
   }, []);
 
+  /**
+   * Генерує лабіринт заданої складності
+   * @param {string} difficulty - Рівень складності ('easy' - 9x9, 'medium' - 13x13, 'hard' - 17x17)
+   * @returns {Array<Array<number>>} Двовимірний масив: 0 - прохід, 1 - стіна
+   * @example
+   * const maze = generateMaze('medium');
+   * // returns 13x13 maze with walls and paths
+   */
   const generateMaze = (difficulty) => {
     const sizes = {
       easy: 9,
@@ -136,7 +163,7 @@ export const useGame = () => {
             [-1, 0],
           ];
           const emptyNeighbors = neighbors.filter(
-            ([dx, dy]) => maze[i + dx] && maze[i + dx][j + dy] === 0
+            ([dx, dy]) => maze[i + dx] && maze[i + dx][j + dy] === 0,
           );
           if (emptyNeighbors.length <= 1) {
             maze[i][j] = 0;
@@ -158,7 +185,7 @@ export const useGame = () => {
       [-1, 0],
     ];
     const validExits = exitDirections.filter(
-      ([dx, dy]) => maze[exitX + dx] && maze[exitX + dx][exitY + dy] === 0
+      ([dx, dy]) => maze[exitX + dx] && maze[exitX + dx][exitY + dy] === 0,
     );
 
     if (validExits.length === 0) {
@@ -202,6 +229,10 @@ export const useGame = () => {
     return playerPos.x === exitPos.x && playerPos.y === exitPos.y;
   };
 
+  /**
+   * Повертає час гри в секундах
+   * @returns {number} Кількість секунд від початку гри
+   */
   const getGameTime = () => {
     if (!gameState.startTime) return 0;
     const endTime = gameState.endTime || new Date();
@@ -210,7 +241,7 @@ export const useGame = () => {
 
   const saveGameResult = useCallback((userId, stats) => {
     const userStats = JSON.parse(
-      localStorage.getItem(`mazeStats_${userId}`) || "{}"
+      localStorage.getItem(`mazeStats_${userId}`) || "{}",
     );
 
     userStats.gamesPlayed = (userStats.gamesPlayed || 0) + 1;
@@ -233,10 +264,10 @@ export const useGame = () => {
     userStats.gameHistory = userStats.gameHistory.slice(-50);
 
     const completedGames = userStats.gameHistory.filter(
-      (game) => game.completed
+      (game) => game.completed,
     ).length;
     userStats.completionRate = Math.round(
-      (completedGames / userStats.gameHistory.length) * 100
+      (completedGames / userStats.gameHistory.length) * 100,
     );
 
     const difficultyCount = {};
@@ -244,8 +275,8 @@ export const useGame = () => {
       difficultyCount[game.difficulty] =
         (difficultyCount[game.difficulty] || 0) + 1;
     });
-    userStats.favoriteDifficulty = Object.keys(difficultyCount).reduce((a, b) =>
-      difficultyCount[a] > difficultyCount[b] ? a : b
+    userStats.favoriteDifficulty = Object.keys(difficultyCount).reduce(
+      (a, b) => (difficultyCount[a] > difficultyCount[b] ? a : b),
     );
 
     localStorage.setItem(`mazeStats_${userId}`, JSON.stringify(userStats));

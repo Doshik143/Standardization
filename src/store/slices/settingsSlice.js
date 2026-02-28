@@ -10,6 +10,23 @@ const loadSettingsFromStorage = () => {
       };
 };
 
+/**
+ * @module settingsSlice
+ * @description Redux слайс для налаштувань гри
+ */
+
+/**
+ * @typedef {Object} Settings
+ * @property {string} difficulty - Рівень складності ('easy', 'medium', 'hard')
+ * @property {string} controls - Тип керування ('keyboard', 'buttons')
+ */
+
+/**
+ * Оновлює налаштування гри
+ * @param {Settings} state - Поточний стан
+ * @param {Object} action - Redux action
+ * @returns {Settings} Новий стан
+ */
 const settingsSlice = createSlice({
   name: "settings",
   initialState: loadSettingsFromStorage(),
@@ -26,7 +43,7 @@ const settingsSlice = createSlice({
       };
       localStorage.setItem(
         "mazeRunnerSettings",
-        JSON.stringify(defaultSettings)
+        JSON.stringify(defaultSettings),
       );
       return defaultSettings;
     },

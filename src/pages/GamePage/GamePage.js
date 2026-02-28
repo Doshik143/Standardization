@@ -1,3 +1,7 @@
+/**
+ * @module GamePage
+ * @description Сторінка гри. Містить лабіринт, керування та відображає прогрес
+ */
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
@@ -100,8 +104,8 @@ const GamePage = () => {
             {settings.difficulty === "easy"
               ? "Легка"
               : settings.difficulty === "medium"
-              ? "Середня"
-              : "Складна"}
+                ? "Середня"
+                : "Складна"}
           </span>
         </GameInfo>
 

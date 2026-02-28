@@ -1,3 +1,7 @@
+/**
+ * @module StartPage
+ * @description Стартова сторінка з меню, налаштуваннями та навігацією
+ */
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { useSelector } from "react-redux";
@@ -41,8 +45,8 @@ const StartPage = () => {
               {settings.difficulty === "easy"
                 ? "Легка"
                 : settings.difficulty === "medium"
-                ? "Середня"
-                : "Складна"}{" "}
+                  ? "Середня"
+                  : "Складна"}{" "}
               складність
             </p>
           </WelcomeSection>

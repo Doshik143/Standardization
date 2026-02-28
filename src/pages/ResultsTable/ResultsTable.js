@@ -1,3 +1,7 @@
+/**
+ * @module ResultsTable
+ * @description Таблиця рейтингів з медалями та сортуванням гравців
+ */
 import React from "react";
 import { useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";

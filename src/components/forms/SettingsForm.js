@@ -14,6 +14,17 @@ import {
   FormActions,
 } from "./SettingsForm.styles";
 
+/**
+ * @module SettingsForm
+ * @description Форма налаштувань гри з React Hook Form
+ */
+
+/**
+ * @param {Object} props - Властивості компонента
+ * @param {Object} props.initialSettings - Початкові налаштування
+ * @param {Function} props.onCancel - Функція скасування
+ * @returns {JSX.Element} Форма налаштувань
+ */
 const SettingsFormComponent = ({ initialSettings, onCancel }) => {
   const dispatch = useDispatch();
 

@@ -1,3 +1,7 @@
+/**
+ * @module gameStatsSlice
+ * @description Redux слайс для статистики ігор
+ */
 import { createSlice } from "@reduxjs/toolkit";
 
 const loadStatsFromStorage = () => {
@@ -5,6 +9,15 @@ const loadStatsFromStorage = () => {
   return savedStats ? JSON.parse(savedStats) : {};
 };
 
+/**
+ * @typedef {Object} GameStats
+ * @property {number} gamesPlayed - Кількість ігор
+ * @property {number} gamesWon - Кількість перемог
+ * @property {number|null} bestTime - Найкращий час
+ * @property {number|null} bestSteps - Найкращі кроки
+ * @property {number} totalSteps - Загальна кількість кроків
+ * @property {number} totalTime - Загальний час
+ */
 const gameStatsSlice = createSlice({
   name: "gameStats",
   initialState: {

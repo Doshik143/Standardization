@@ -1,5 +1,14 @@
 import { useState, useEffect, useCallback } from "react";
 
+/**
+ * @module useGameControls
+ * @description Хук для обробки клавіш керування (стрілки, WASD)
+ */
+
+/**
+ * @param {Function} onMove - Функція, яка викликається при русі
+ * @returns {Object} Об'єкт з активним напрямком та функцією руху
+ */
 export const useGameControls = (onMove) => {
   const [activeDirection, setActiveDirection] = useState(null);
 
@@ -24,7 +33,7 @@ export const useGameControls = (onMove) => {
         setTimeout(() => setActiveDirection(null), 200);
       }
     },
-    [onMove]
+    [onMove],
   );
 
   useEffect(() => {
@@ -42,7 +51,7 @@ export const useGameControls = (onMove) => {
       }
       setTimeout(() => setActiveDirection(null), 200);
     },
-    [onMove]
+    [onMove],
   );
 
   return {

@@ -18,6 +18,17 @@ const generateUserId = () => {
   return `user_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`;
 };
 
+/**
+ * @module App
+ * @description Головний компонент додатку з маршрутизацією та Redux Provider
+ */
+
+/**
+ * Генерує унікальний ID для нового користувача
+ * @returns {string} Унікальний ідентифікатор
+ * @example
+ * const userId = generateUserId(); // 'user_1709123456789_abc123def'
+ */
 function App() {
   return (
     <Provider store={store}>

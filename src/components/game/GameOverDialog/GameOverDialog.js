@@ -8,6 +8,19 @@ import {
   DialogActions,
 } from "./GameOverDialog.styles";
 
+/**
+ * @module GameOverDialog
+ * @description Модальне вікно з результатами гри
+ */
+
+/**
+ * @param {Object} props - Властивості компонента
+ * @param {boolean} props.isOpen - Чи відкрите вікно
+ * @param {Function} props.onClose - Функція закриття
+ * @param {Function} props.onRestart - Функція перезапуску
+ * @param {Object} props.gameStats - Статистика гри
+ * @returns {JSX.Element} Модальне вікно
+ */
 const GameOverDialog = ({ isOpen, onClose, onRestart, gameStats }) => {
   const { steps, time, isSuccess } = gameStats;
 

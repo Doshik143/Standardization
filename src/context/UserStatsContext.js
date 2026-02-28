@@ -1,5 +1,27 @@
+/**
+ * @module UserStatsContext
+ * @description Контекст для управління статистикою користувачів
+ * @deprecated Використовується тільки для сумісності зі старим кодом
+ * @see Використовуйте Redux slice gameStatsSlice замість цього контексту
+ */
 import { createSlice } from "@reduxjs/toolkit";
 
+/**
+ * @typedef {Object} UserStats
+ * @property {number} gamesPlayed - Кількість зіграних ігор
+ * @property {number} gamesWon - Кількість перемог
+ * @property {number|null} bestTime - Найкращий час проходження (в секундах)
+ * @property {number|null} bestSteps - Найменша кількість кроків
+ * @property {number} totalSteps - Загальна кількість кроків
+ * @property {number} totalTime - Загальний час у грі
+ */
+
+/**
+ * @typedef {Object} GameResult
+ * @property {number} time - Час гри в секундах
+ * @property {number} steps - Кількість кроків
+ * @property {boolean} isSuccess - Чи перемога
+ */
 const loadStatsFromStorage = () => {
   const savedStats = localStorage.getItem("mazeRunnerStats");
   return savedStats ? JSON.parse(savedStats) : {};

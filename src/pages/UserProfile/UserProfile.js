@@ -1,3 +1,7 @@
+/**
+ * @module UserProfile
+ * @description Сторінка профілю користувача зі статистикою та редагуванням
+ */
 import { useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -79,8 +83,8 @@ const UserProfile = () => {
               {userProfile.favoriteDifficulty === "easy"
                 ? "Легка"
                 : userProfile.favoriteDifficulty === "medium"
-                ? "Середня"
-                : "Складна"}
+                  ? "Середня"
+                  : "Складна"}
             </p>
           </div>
         </ProfileInfo>

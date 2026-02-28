@@ -5,6 +5,17 @@ const loadUserProfilesFromStorage = () => {
   return savedProfiles ? JSON.parse(savedProfiles) : {};
 };
 
+/**
+ * @module userSlice
+ * @description Redux слайс для профілів користувачів
+ */
+
+/**
+ * @typedef {Object} UserProfile
+ * @property {string} username - Ім'я користувача
+ * @property {string} email - Email
+ * @property {string} favoriteDifficulty - Улюблена складність
+ */
 const userSlice = createSlice({
   name: "user",
   initialState: {
@@ -16,7 +27,7 @@ const userSlice = createSlice({
       state.profiles[userId] = { ...state.profiles[userId], ...profileData };
       localStorage.setItem(
         "mazeRunnerUserProfiles",
-        JSON.stringify(state.profiles)
+        JSON.stringify(state.profiles),
       );
     },
   },

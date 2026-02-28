@@ -1,5 +1,10 @@
 import { useState, useCallback } from "react";
 
+/**
+ * @module useNavigation
+ * @description Хук для управління навігацією між сторінками
+ * @deprecated Використовується тільки в старій версії, замінено на React Router
+ */
 export const useNavigation = () => {
   const [currentPage, setCurrentPage] = useState("start");
 

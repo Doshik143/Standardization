@@ -7,6 +7,23 @@ import {
   IconWrapper,
 } from "./MazeGrid.styles";
 
+/**
+ * @module MazeGrid
+ * @description Компонент для відображення сітки лабіринту
+ */
+
+/**
+ * @typedef {Object} CellPosition
+ * @property {number} x - Координата рядка
+ * @property {number} y - Координата стовпця
+ */
+
+/**
+ * Рендерить окрему клітинку лабіринту
+ * @param {number} rowIndex - Індекс рядка
+ * @param {number} colIndex - Індекс стовпця
+ * @returns {JSX.Element} Клітинка з відповідним вмістом
+ */
 const MazeGrid = ({
   maze = [],
   playerPosition = { x: 0, y: 0 },

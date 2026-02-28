@@ -1,3 +1,8 @@
+/**
+ * @module SettingsContext
+ * @description Контекст для налаштувань гри (замінено на Redux)
+ * @deprecated Використовується тільки для сумісності
+ */
 import { createSlice } from "@reduxjs/toolkit";
 
 const loadSettingsFromStorage = () => {
@@ -26,7 +31,7 @@ const settingsSlice = createSlice({
       };
       localStorage.setItem(
         "mazeRunnerSettings",
-        JSON.stringify(defaultSettings)
+        JSON.stringify(defaultSettings),
       );
       return defaultSettings;
     },

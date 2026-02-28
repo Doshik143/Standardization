@@ -3,6 +3,10 @@ import CookieConsent from "react-cookie-consent";
 import styled from "styled-components";
 import Button from "../Button/Button";
 
+/**
+ * @module CookiePopup
+ * @description Компонент для відповідності GDPR, показує повідомлення про cookies
+ */
 const CookiePopup = () => {
   const [showSettings, setShowSettings] = useState(false);
 
