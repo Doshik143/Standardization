@@ -110,7 +110,7 @@ npm start
 ## 📖 Документація
 
 - [JSDoc документація](./docs/index.html) → [VideoDemo](./docs/video/docs-demo.mp4) ←
-- [Storybook](./)
+- [Storybook](./storybook-static/index.html)
 - [Політика конфіденційності](./PRIVACY.md)
 - [Умови використання](./EULA.md)
 

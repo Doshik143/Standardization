@@ -25,12 +25,15 @@
     "eject": "react-scripts eject",
     "docs": "jsdoc -c jsdoc.json",
     "docs:serve": "npx http-server ./docs -o",
-    "docs:clean": "rm -rf docs"
+    "docs:clean": "rm -rf docs",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
+      "react-app/jest",
+      "plugin:storybook/recommended"
     ]
   },
   "browserslist": {
@@ -46,7 +49,17 @@
     ]
   },
   "devDependencies": {
+    "@storybook/addon-a11y": "^10.2.13",
+    "@storybook/addon-docs": "^10.2.13",
+    "@storybook/jest": "^0.2.2",
+    "@storybook/preset-create-react-app": "^10.2.13",
+    "@storybook/react-webpack5": "^10.2.13",
+    "@storybook/testing-library": "^0.2.1",
     "better-docs": "^2.7.3",
-    "jsdoc": "^4.0.5"
+    "eslint-plugin-storybook": "^10.2.13",
+    "jsdoc": "^4.0.5",
+    "prop-types": "^15.8.1",
+    "storybook": "^10.2.13",
+    "webpack": "^5.105.3"
   }
 }
